@@ -1,0 +1,401 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background-color: #0b1b35;
+    color: #ddd;
+}
+
+.container {
+    display: none;
+}
+
+#intro, #innovative-view, #heatmap, #line-scatter-bar {
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+#intro, #innovative-view, #heatmap {
+    border-bottom: solid #4d4d4d 1px;
+}
+
+#line-scatter-bar {
+    display: flex;
+    justify-content: center;
+}
+
+#scatter-bar {
+    max-width: 550px;
+    margin-left: 10px;
+}
+
+h1, h2{
+    font-family: 'Goldman', sans-serif;
+    color: #42c5e9;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.chart-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.chart-title-small {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.loading {
+    background-color: #0b1d3e;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    margin: 0;
+    overflow: hidden;
+}
+
+.loading>img {
+    margin: 50vh 50vw;
+    transform: translate(-50%, -50%);
+    padding: 0;
+}
+
+.loading>div {
+    color: white;
+    position: absolute;
+    top: calc(50vh + 100px);
+    left: 50vw;
+    transform: translateX(-50%);
+}
+
+.desc {
+    line-height: 1.5;
+    width: 1000px;
+    margin: 10px auto 30px auto;
+    text-align: center;
+}
+
+.axis line {
+    fill: none;
+    stroke: #ddd;
+    shape-rendering: crispEdges;
+}
+
+.tick > text {
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ddd;
+}
+
+.axis-small .tick > text {
+    font-size: 11px;
+}
+
+.tick > line, .domain {
+    stroke: #22346a;
+}
+
+.axis-label {
+    fill: #ddd;
+    font-size: 14px;
+}
+
+select{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/*Intro*/
+#intro h1 {
+    font-size: 3.5em;
+}
+
+#intro p {
+    line-height: 1.5;
+    width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+/*innovative view*/
+#innovative-view{
+    display: flex;
+    flex-direction: column;
+}
+
+#innovative-selectors {
+    display: flex;
+}
+
+#innovative-selectors p {
+    margin: 0 10px;
+    font-size: 18px;
+    font-family: 'Goldman', sans-serif;
+    color: #42c5e9;
+}
+
+#year-selector {
+    margin-right: 20px;
+}
+
+
+
+#innovative-chart-area, #innovative-view h1, #innovative-selectors{
+    align-self: center;
+}
+
+.filter {
+    fill: #4187c7;
+    cursor: pointer;
+    transition: fill 0.3s;
+}
+
+.filter:hover, .filter.active{
+    fill: #ed2a7b;
+}
+
+.line-game {
+    stroke: #4187c7;
+    stroke-width: 2;
+    transition: stroke 0.3s;
+}
+
+.line-game:hover {
+    stroke: #bef6f1;
+    stroke-width: 2.5;
+}
+
+.line-active {
+    stroke: #ed2a7b;
+    stroke-width: 2.5;
+}
+
+.line-inactive, .line-inactive:hover {
+    stroke: #226199;
+}
+
+.filterLabel {
+    font-size: 14px;
+    font-weight: 600;
+    fill: #ffffff;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.no_data_msg {
+    font-size: 16px;
+    fill: #ffffff;
+}
+
+/*bar chart*/
+#bar-chart{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+#bar-chart h1,  #bar-chart > svg{
+    align-self: center;
+}
+
+.bar {
+    transition: fill 0.3s;
+}
+
+.bar:hover {
+    fill: #ed2a7b;
+    cursor: pointer;
+}
+
+/* heatmap */
+#heatmap {
+    display: flex;
+    flex-direction: column;
+}
+
+#heatmap-main {
+    align-self: center;
+}
+
+#heatmap >* {
+    align-self: center;
+}
+
+.heatmap-versus {
+    display: flex;
+}
+
+.heatmap-versus > span {
+    font-family: 'Goldman', sans-serif;
+    color: #42c5e9;
+}
+
+/* line chart */
+#line-chart {
+    display: flex;
+    flex-direction: column;
+}
+
+#line-chart>* {
+    align-self: center;
+}
+
+.linechart-selection {
+    height: 15vh;
+    width: 40vh;
+}
+
+#line-chart-area{
+    margin-bottom: 30px;
+}
+
+/* scatter plot */
+#scatterplot {
+    display: flex;
+    flex-direction: column;
+}
+
+#scatterplot>* {
+    align-self: center;
+}
+
+#scatterplot-main .point:hover, .point.active {
+    opacity: 1.0;
+    fill: #ed2a7b;
+    cursor: pointer;
+}
+
+/*tooltip*/
+#tooltip {
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: #cccccc solid 1px;
+    color: dimgray;
+    padding: 10px;
+}
+
+#tooltip p {
+    margin: 5px;
+    font-size: 12px;
+}
+
+#tooltip p.tooltip-title{
+    font-family: 'Goldman', sans-serif;
+    font-size: 17px;
+    color: #0b1d3e;
+}
+
+.tooltip-bold {
+    font-weight: bold;
+}
+
+.tooltip-circle {
+    display: inline-block;
+}
+
+
+/* Radio buttons */
+.radio-group {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_radio*/
+/* The container */
+.radio-container {
+    margin-right: 30px;
+    font-family: 'Goldman', sans-serif;
+    color: #42c5e9;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    padding: 3px;
+    background-color: transparent;
+    border:  #42c5e9 solid 3px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+    background-color: #226199;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+    background-color: transparent;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-container:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+    content: '';
+    top: 6px;
+    left: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #42c5e9;
+}
+
+/* select boxes */
+select {
+    background-color: #0B1B35;
+    color: #42c5e9;
+    border: 2px solid #42c5e9;
+    border-radius: 4px;
+    font-family: 'Goldman', sans-serif;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B1B35;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #42C5E9;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4188C9;
+}

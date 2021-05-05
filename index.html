@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Video Games Ratings</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="loading">
+            <img src="img/loading.gif" alt="loading...">
+            <div>Loading data...</div>
+        </div>
+
+        <div class="container">
+            <div id="intro">
+                <h1>Video Game Data</h1>
+                <p>The gaming industry has been one of the fastest growing industries for the past decade, even surpassing the global music and film industry.
+                    In this project, we want to dive into the gaming world, and see what exactly happened to the growth of video games and its ratings through time.</p>
+            </div>
+            <div id="innovative-view">
+                <h1 class="chart-title">Game Genres by Year</h1>
+                <p class="desc">
+                    In this view, the users can get a general idea on the gaming industry
+                    in a specific year. Specifically, for a given year, the user will be
+                    able to see a pie chart distribution of platform, genre, or ESRB rating.
+                    This gives you a macro understanding of the distribution of games you
+                    may be interested in before going on to the next visuals.
+                </p>
+                <div id="innovative-selectors">
+                    <p>Released Year: </p>
+                    <select id="year-selector">
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                        <option value="2011">2011</option>
+                        <option value="2010">2010</option>
+                        <option value="2009">2009</option>
+                        <option value="2008">2008</option>
+                        <option value="2007">2007</option>
+                        <option value="2006">2006</option>
+                        <option value="2005">2005</option>
+                        <option value="2004">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1995">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
+                        <option value="1990">1990</option>
+                        <option value="1989">1989</option>
+                        <option value="1988">1988</option>
+                        <option value="1987">1987</option>
+                        <option value="1986">1986</option>
+                        <option value="1985">1985</option>
+                        <option value="1984">1984</option>
+                        <option value="1983">1983</option>
+                        <option value="1982">1982</option>
+                        <option value="1981">1981</option>
+                        <option value="1980">1980</option>
+                        <option value="before1980">< 1980</option>
+                    </select>
+                    <p>Attribute: </p>
+                    <select id="attr-filter-selector">
+                        <option value="genres">Genres</option>
+                        <option value="platforms">Platforms</option>
+                        <option value="esrb_rating">ESRB Ratings</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="heatmap">
+                <h1 class="chart-title">Feature Interactivity</h1>
+                <p class="desc">
+                    In this heatmap, you can interpret correlations between certain features
+                    and if different types of “reviews” tell contrasting stories. For example,
+                    if you select Suggestions Count Vs. Rating, you can see that the number of
+                    suggestions doesn't really affect ratings, and so you could choose to ignore
+                    number of suggestions the next time you're researching a game!
+                </p>
+                <div class="heatmap-versus">
+                    <select id="heatmap-y">
+                        <option value="metacritic" selected="selected">Metacritic</option>
+                        <option value="rating">Rating</option>
+                        <option value="playtime">Playtime</option>
+                        <option value="reviews_count">Reviews Count</option>
+                        <option value="suggestions_count">Suggestions Count</option>
+                        <option value="ratings_count">Ratings Count</option>
+                        <option value="achievements_count">Achievements Count</option>
+                    </select>
+                    <span style="margin-left:10px;margin-right:10px;">Vs.</span>
+                    <select id="heatmap-x">
+                        <option value="rating" selected="selected">Rating</option>
+                        <option value="metacritic">Metacritic</option>
+                        <option value="playtime">Playtime</option>
+                        <option value="reviews_count">Reviews Count</option>
+                        <option value="suggestions_count">Suggestions Count</option>
+                        <option value="ratings_count">Ratings Count</option>
+                        <option value="achievements_count">Achievements Count</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="line-scatter-bar">
+                <div id="line-chart">
+                    <h1 class="chart-title">Over the Years</h1>
+                    <p class="desc" style="width: 600px;">
+                        In this chart, you can see specific publishers or platforms
+                        performance over the years. There are two ways of measuring
+                        performance: ratings or number of games released.
+                        Try seleecting several of your favourite platforms or publishers!
+                    </p>
+                    <div id="line-chart-area"></div>
+                    <div class="radio-group">
+                        <label class="radio-container" for="select-rating">Rating
+                            <input type="radio" id="select-rating" class="linechart-item" name="linechart-item" value="ratings" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container" for="select-games">Number of Games
+                            <input type="radio" id="select-games" class="linechart-item" name="linechart-item" value="games">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="radio-group">
+                        <label class="radio-container" for="select-publishers">Publishers
+                            <input type="radio" id="select-publishers" class="linechart-type" name="linechart-type" value="publishers">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container" for="select-platforms">Platforms
+                            <input type="radio" id="select-platforms" class="linechart-type" name="linechart-type" value="platforms">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <select id="linechart-selection-publishers" name="linechart-selection-publishers" class="linechart-selection" multiple style="display: none;"></select>
+                    <select id="linechart-selection-platforms" name="linechart-selection-platforms" class="linechart-selection" multiple style="display: none;"></select>
+                </div>
+
+                <div id="scatter-bar">
+                    <div id="scatterplot">
+                        <h2 class="chart-title-small">Quantity or Quality?</h2>
+                        <p class="desc" style="width: 500px;">
+                            This is a scatter plot of all popular publishers. You will find it
+                            interesting that some publishers actually favour production speed
+                            than production quality. Try selecting a few publishers!
+                        </p>
+                    </div>
+
+                    <div id="bar-chart">
+                        <h2 class="chart-title-small">Game Genres</h2>
+                        <p class="desc" style="width: 500px;">
+                            Here, we can see the genre distribution of your selected publishers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tooltip"></div>
+        </div>
+
+        <script src="js/lib/d3.v6.min.js"></script>
+        <script src="js/lib/jquery-3.6.0.min.js"></script>
+        <script src="js/lib/d3-hexbin.v0.2.min.js"></script>
+        <script src="js/barchart.js"></script>
+        <script src="js/heatmap.js"></script>
+        <script src="js/innovative.js"></script>
+        <script src="js/linechart.js"></script>
+        <script src="js/scatterplot.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
